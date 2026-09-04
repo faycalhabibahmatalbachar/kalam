@@ -57,9 +57,10 @@ Marche à suivre complète : [`docs/STRATEGIE_RECOLTE.md`](docs/STRATEGIE_RECOLT
 ## Ce que contient le dépôt
 
 ```
-banque/        la banque de phrases (source française, traductions, statuts)
+banque/        la banque de phrases, le plan des domaines, les quotas de diversité
 outils/        les programmes : livrets, contrôle qualité audio, manifeste
-docs/          objectifs chiffrés, stratégie, conventions, budget
+docs/          objectifs chiffrés, stratégie, conventions, gouvernance, budget
+terrain/       les registres des coordinateurs : locuteurs, lectures, validations
 consentement/  les formulaires FR et AR, sans lesquels rien n'est collecté
 eval/          la spécification du jeu de test spontané
 ```
@@ -68,10 +69,17 @@ eval/          la spécification du jeu de test spontané
 
 ```bash
 pip install -r outils/requirements.txt
-python outils/verifier_banque.py            # état de la banque de phrases
-python outils/livret.py --locuteur LOC001 --phrases 240 --sortie livrets/
-python outils/qualite_audio.py --dossier enregistrements/LOC001 --rapport qc.csv
-python outils/manifeste.py --seances seances/ --sortie manifeste.csv
+# 1. etat de la banque de phrases
+python outils/verifier_banque.py
+
+# 2. fabriquer le livret d'un locuteur (240 phrases = une seance de 45 min)
+python outils/livret.py --locuteur LOC001 --phrases 240
+
+# 3. controle qualite des enregistrements, avant toute ecoute humaine
+python outils/qualite_audio.py --dossier enregistrements/LOC001   --plan livrets/LOC001/plan_seance_LOC001_s1.csv   --rapport terrain/qc_LOC001.csv
+
+# 4. assembler le corpus et verifier les quotas de diversite
+python outils/manifeste.py
 ```
 
 ## Licences
