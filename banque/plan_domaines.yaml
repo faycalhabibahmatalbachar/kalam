@@ -1,0 +1,93 @@
+# Plan de couverture de la banque de phrases
+#
+# La part decide combien de phrases uniques chaque domaine recoit dans la
+# banque finale. outils/verifier_banque.py compare la banque reelle a ce plan
+# et signale tout ecart superieur a la tolerance.
+#
+# Total des parts : 100
+# Tolerance par domaine : 3 points
+
+tolerance_points: 3
+
+longueur:
+  mots_min: 5
+  mots_max: 18
+  mots_cible_median: 11
+  # 11 mots ~ 7 s de parole ~ la duree de segment ideale pour l'ASR et le TTS
+
+lectures_par_phrase: 3
+
+domaines:
+
+  - code: salutations
+    part: 8
+    titre: Salutations, politesse, presentation de soi
+    couvre: bonjour selon l'heure, sante de la famille, remerciements, excuses, prise conge, se presenter, demander un nom
+
+  - code: famille
+    part: 7
+    titre: Famille, parente, vie de la maison
+    couvre: liens de parente, enfants, mariage, deces, corvees domestiques, eau, cour, voisins
+
+  - code: marche
+    part: 10
+    titre: Marche, prix, negociation, argent liquide
+    couvre: demander un prix, negocier, quantites, monnaie, credit, qualite d'un produit, se plaindre
+
+  - code: mobile_money
+    part: 5
+    titre: Mobile money, transferts, recharge, forfaits
+    couvre: envoyer de l'argent, retirer, solde, code secret, frais, echec de transaction, recharge de credit
+
+  - code: sante
+    part: 9
+    titre: Sante, symptomes, pharmacie, hopital
+    couvre: decrire une douleur, fievre, paludisme, grossesse, vaccination, ordonnance, rendez-vous, urgence
+
+  - code: transport
+    part: 7
+    titre: Transport, directions, lieux
+    couvre: demander son chemin, prix de la course, clando et moto-taxi, gare routiere, distances, panne, embouteillage
+
+  - code: admin
+    part: 7
+    titre: Administration, papiers, ecole, travail
+    couvre: piece d'identite, acte de naissance, inscription, examen, salaire, embauche, formulaire, guichet
+
+  - code: agri
+    part: 7
+    titre: Agriculture, elevage, meteo, saisons
+    couvre: semis, recolte, mil et sorgho, troupeau, marche a betail, pluie, harmattan, secheresse, puits
+
+  - code: cuisine
+    part: 5
+    titre: Nourriture, cuisine, boissons
+    couvre: boule, sauce gombo, the, karkanji, marche aux legumes, cuisson, invitation a manger
+
+  - code: tech
+    part: 6
+    titre: Telephone, internet, electricite
+    couvre: batterie, reseau, appel manque, message vocal, coupure de courant, groupe electrogene, panneau solaire
+
+  - code: nombres
+    part: 8
+    titre: Chiffres, dates, heures, quantites
+    couvre: prix en FCFA, heures et minutes, jours de la semaine, mois, ages, poids, distances, pourcentages
+    note: domaine critique, c'est la ou les modeles peu dotes echouent le plus
+
+  - code: noms_propres
+    part: 5
+    titre: Noms de personnes, villes, regions, institutions
+    couvre: prenoms tchadiens courants, 23 provinces, quartiers de N'Djamena, pays voisins, operateurs et institutions
+    note: sans ce domaine le modele transcrit les noms propres en charabia
+
+  - code: assistant
+    part: 8
+    titre: Requetes adressees a un assistant vocal
+    couvre: poser une question, demander une traduction, dicter un message, fixer un rappel, demander la meteo, annuler, repeter
+
+  - code: recits
+    part: 8
+    titre: Recits courts, proverbes, expressions
+    couvre: raconter sa journee, un souvenir, un incident, proverbes, expressions figees, exclamations
+    note: seul domaine ou la phrase peut depasser 18 mots, plafond porte a 25

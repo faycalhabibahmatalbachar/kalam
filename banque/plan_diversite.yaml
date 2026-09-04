@@ -1,0 +1,46 @@
+# Quotas de diversite du corpus.
+#
+# outils/manifeste.py compare le corpus reel a ces quotas et signale chaque
+# ecart superieur a la tolerance. Un corpus hors quota n'est pas invalide, mais
+# il ne peut pas etre presente comme representatif : l'ecart doit etre publie.
+
+tolerance_points: 10
+
+genre:
+  femme: 50
+  homme: 50
+
+tranche_age:
+  "18-25": 30
+  "26-40": 35
+  "41-60": 25
+  "60+": 10
+
+ville_collecte:
+  ndjamena: 25
+  abeche: 15
+  sarh: 14
+  moundou: 14
+  am_timan: 8
+  ati: 8
+  mongo: 8
+  moussoro: 8
+
+langue_premiere_groupe:
+  # shu = arabe tchadien langue premiere ; autre = arabe appris comme
+  # vehiculaire, ce qui est la situation de la moitie sud du pays.
+  shu: 65
+  autre: 35
+
+conditions:
+  interieur_calme: 70
+  ordinaire: 30
+
+# Bornes de securite, independantes des parts ci-dessus.
+plafonds:
+  # Aucun locuteur ne doit peser plus que cette part du corpus, sinon le modele
+  # apprend une personne plutot qu'une langue.
+  part_max_un_locuteur: 3
+  # Ni aucune ville.
+  part_max_une_ville: 35
+  minutes_max_par_locuteur: 120

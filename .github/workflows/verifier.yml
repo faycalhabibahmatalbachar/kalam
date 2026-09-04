@@ -1,0 +1,24 @@
+name: verifier la banque
+
+on:
+  push:
+    paths: ["banque/**", "outils/**", ".github/workflows/verifier.yml"]
+  pull_request:
+    paths: ["banque/**", "outils/**"]
+
+jobs:
+  banque:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r outils/requirements.txt
+      - name: schema, doublons, longueurs, equilibre des domaines
+        run: python outils/verifier_banque.py
+      - name: les outils demarrent
+        run: |
+          python outils/livret.py --help > /dev/null
+          python outils/qualite_audio.py --help > /dev/null
+          python outils/manifeste.py --help > /dev/null

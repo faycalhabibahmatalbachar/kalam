@@ -1,0 +1,25 @@
+# Audio : jamais dans git. Le corpus se publie sur Hugging Face, pas ici.
+enregistrements/
+voix_tts/
+corpus/
+livrets/*/
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.ogg
+
+# Donnees nominatives : hors depot, sans exception.
+terrain/consentements_signes/
+terrain/annuaire_*.csv
+
+# Rapports de travail
+terrain/qc_*.csv
+*.log
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+Thumbs.db

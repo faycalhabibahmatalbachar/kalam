@@ -1,0 +1,25 @@
+Les DONNEES de ce projet (banque de phrases, enregistrements collectes par
+Kalam, transcriptions, metadonnees de locuteurs anonymisees, jeu de test) sont
+publiees sous licence Creative Commons Attribution 4.0 International
+(CC BY 4.0).
+
+    https://creativecommons.org/licenses/by/4.0/deed.fr
+
+Vous etes libre de partager et d'adapter ces donnees, y compris a des fins
+commerciales, a condition de crediter :
+
+    Kalam - corpus ouvert de l'arabe tchadien, Toumai AI
+    https://github.com/Toumai-AI/kalam
+
+Le CODE de ce projet est publie separement sous licence MIT : voir LICENSE.
+
+CE QUI N'EST PAS COUVERT PAR CETTE LICENCE
+------------------------------------------
+Les sources anterieures au projet, utilisees en interne sous autorisation
+restreinte (livre de Pommerol, dictionnaire Karthala, enregistrements FCBH,
+contributions de createurs), ne sont ni publiees ici ni couvertes par CC BY 4.0.
+Elles servent d'arbitrage orthographique et d'entrainement interne uniquement.
+Voir docs/GOUVERNANCE.md.
+
+Les contributions marquees usage_restreint, pour lesquelles le locuteur a
+refuse la publication ouverte, ne sont pas publiees.
